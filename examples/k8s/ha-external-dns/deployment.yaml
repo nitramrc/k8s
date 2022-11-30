@@ -61,6 +61,9 @@ metadata:
   labels:
     app: k8s-sample-app
   name: k8s-sample-app
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: '3600'
+    external-dns.alpha.kubernetes.io/hostname: k8s-sample-app.mhorejsek.traskaws.net
 spec:
   ports:
   - port: 80

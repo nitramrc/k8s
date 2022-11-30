@@ -1,0 +1,30 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ingress-nginx
+  labels:
+    app: ingress-nginx
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: '*'
+    service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: '3600'
+    external-dns.alpha.kubernetes.io/hostname: ingress.mhorejsek.traskaws.net
+spec:
+  type: LoadBalancer
+  selector:
+    app: ingress-nginx
+  ports:
+  - name: http
+    port: 80
+    targetPort: http
+  # - name: https
+  #   port: 443
+  #   targetPort: https
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: nginx-configuration
+  labels:
+    app: ingress-nginx
+data:
+  use-proxy-protocol: "true"

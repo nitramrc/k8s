@@ -15,12 +15,12 @@ spec:
         app: interpod
     spec:
       containers:
-      - image: harbor.trask.cz/arm64/ubuntu-netcat
+      - image: public.ecr.aws/r0z1v2q2/debian:nc
         name: ubuntu-1
         command: ["nc"]
         args: ["-kl", "1234"]
         imagePullPolicy: IfNotPresent
-      - image: harbor.trask.cz/arm64/ubuntu-netcat
+      - image: public.ecr.aws/r0z1v2q2/debian:nc
         name: ubuntu-2
         command: ["sh"]
         args: ["-c", "while :; do echo \"Sending data ...\"; echo \"Echo from $(hostname)\" | nc -q 1 localhost 1234; done"]

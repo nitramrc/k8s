@@ -19,7 +19,7 @@ spec:
         - while :; do echo \"$(ls /data)\"; sleep 5; done
         command:
         - sh
-        image: harbor.trask.cz/arm64/ubuntu-netcat
+        image: public.ecr.aws/r0z1v2q2/debian:nc
         imagePullPolicy: IfNotPresent
         name: ubuntu
         volumeMounts:

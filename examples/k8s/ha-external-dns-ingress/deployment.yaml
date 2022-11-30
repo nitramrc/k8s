@@ -69,5 +69,5 @@ spec:
   selector:
     app: k8s-sample-app
   sessionAffinity: None
-  type: LoadBalancer
+  type: NodePort
 
